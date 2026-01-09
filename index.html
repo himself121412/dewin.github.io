@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Web Access Tool</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; padding: 50px; background: #121212; color: white; }
+        input { padding: 10px; width: 300px; border-radius: 5px; border: none; }
+        button { padding: 10px 20px; background: #007bff; color: white; border: none; cursor: pointer; border-radius: 5px; }
+        .warning { color: #ffab00; font-size: 0.8em; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Browser Proxy</h1>
+    <p>Enter a URL to visit:</p>
+    <input type="text" id="url" placeholder="https://roblox.com">
+    <button onclick="launch()">Go</button>
+    
+    <p class="warning">Note: Some features on complex sites may not load correctly.</p>
+
+    <script>
+        function launch() {
+            const target = document.getElementById('url').value;
+            // Using a public CORS proxy service
+            const proxyUrl = "https://api.allorigins.win/raw?url=" + encodeURIComponent(target);
+            window.location.href = proxyUrl;
+        }
+    </script>
+</body>
+</html>
